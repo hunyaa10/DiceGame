@@ -25,12 +25,18 @@ const resetDice = () => {
   diceSum = 0;
 };
 
-const disabledStatus = (element, status) => {
-  if (status) {
-    element.setAttribute("aria-disabled", "false");
-  } else {
-    element.setAttribute("aria-disabled", "true");
-  }
+const ariaDisabled = () => {
+  const disabledStatus = (element, status) => {
+    if (status) {
+      element.setAttribute("aria-disabled", "false");
+    } else {
+      element.setAttribute("aria-disabled", "true");
+    }
+  };
+
+  isDisabled = !isDisabled;
+  disabledStatus(player[0], isDisabled);
+  disabledStatus(player[1], !isDisabled);
 };
 
 const playDice = () => {
@@ -50,11 +56,8 @@ const playDice = () => {
     playerScore[i].innerText = `점수 : ${totalScore}`;
     diceSum = 0;
 
+    ariaDisabled();
     resetDice();
-
-    isDisabled = !isDisabled;
-    disabledStatus(player[0], isDisabled);
-    disabledStatus(player[1], !isDisabled);
   });
 };
 
