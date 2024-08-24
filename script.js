@@ -21,6 +21,8 @@ let i = 0;
 const resetDice = () => {
   diceNumber[i].innerText = `주사위 숫자 : 0`;
   diceBuild[i].innerText = `주사위 합 : 0`;
+  num = 0;
+  diceSum = 0;
 };
 
 const disabledStatus = (element, status) => {
