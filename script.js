@@ -58,6 +58,13 @@ const playDice = () => {
 
     ariaDisabled();
     resetDice();
+
+    if (totalScore >= 30) {
+      victory.style = "display: flex;";
+      replay.addEventListener("click", () => {
+        location.reload();
+      });
+    }
   });
 };
 
